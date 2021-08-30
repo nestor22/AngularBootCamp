@@ -1,15 +1,1 @@
-<div class="card">
-  <div class="card-image">
-    <figure class="image is-4by3">
-      <img src="assets/images/tree1.jpg" alt="" width="400px" />
-    </figure>
-  </div>
-
-  <div class="card-content">
-    <div class="media-content">
-      <p class="title is-4">Need Tree</p>
-      <p class="subtittle is-6">@nature</p>
-    </div>
-    <div class="content">saw this awesome tree durim my hike today</div>
-  </div>
-</div>
+<app-card *ngFor="let post of posts" [post]="post"></app-card>
