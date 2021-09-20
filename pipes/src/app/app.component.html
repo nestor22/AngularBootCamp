@@ -1,0 +1,93 @@
+<div class="container">
+  <h3>Payment Form</h3>
+
+  <div class="row">
+    <div class="form-group col">
+      <label for="">Payee Name</label>
+      <input class="form-control" type="text" (input)="onNameChange($event)" />
+
+      <div class="col">
+        <label><b>Name</b></label>
+        <div>
+          <p>{{ name | titlecase }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col">
+      <label for=""> Date </label>
+      <input class="form-control" type="date" (input)="onDateChange($event)" />
+
+      <div class="col">
+        <label><b>Date</b></label>
+        <div>
+          <p>
+            {{ date | date: "MMMM d, y" }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col">
+      <label for=""> Paymena Amount </label>
+      <input
+        class="form-control"
+        type="string"
+        (input)="onAmountChange($event)"
+      />
+
+      <div class="col">
+        <label><b>Amount</b></label>
+        <div>
+          <p>
+            {{ amount | currency }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col">
+      <label for=""> Height </label>
+      <input
+        class="form-control"
+        type="string"
+        (input)="onHeightChange($event)"
+      />
+
+      <div class="col">
+        <label><b>height</b></label>
+        <div>
+          <p>
+            {{ height | number: "1.0-2" }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col">
+      <label for=""> Miles </label>
+      <input
+        class="form-control"
+        type="string"
+        (input)="onMilesChange($event)"
+      />
+
+      <div class="col">
+        <label><b>Kilometres</b></label>
+        <div *ngIf="(miles | convert: 'm') > 10">
+          <p>
+            {{ miles | convert: "m" | number: "1.0-2" }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
