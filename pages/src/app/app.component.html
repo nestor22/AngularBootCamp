@@ -1,21 +1,18 @@
 <nav aria-label="Page navigation example">
   <ul class="pagination">
-    <li class="page-item" [ngClass]="{ disabled: currentPage === 0 }">
+    <!--     <li class="page-item" [ngClass]="{ disabled: currentPage === 0 }"> -->
+    <li class="page-item" [appClass]="{ disabled: currentPage === 0 }">
       <a class="page-link" (click)="currentPage = currentPage - 1">Previous</a>
     </li>
     <ng-container *ngFor="let image of images; let i = index">
-      <li
-        class="page-item"
-        [ngClass]="{ active: i === currentPage }"
-        *ngIf="checkWindowIndex(i)"
-      >
+      <li class="page-item" *ngIf="checkWindowIndex(i)">
         <a class="page-link" (click)="currentPage = i">{{ i + 1 }} </a>
       </li>
     </ng-container>
 
     <li
       class="page-item"
-      [ngClass]="{ disabled: currentPage === images.length - 1 }"
+      [appClass]="{ disabled: currentPage === images.length - 1 }"
     >
       <a class="page-link" (click)="currentPage = currentPage + 1">Next</a>
     </li>
@@ -30,4 +27,9 @@
   <div *ngSwitchDefault>unnow current page</div>
 </div>
 
-<div [appClass]="'Red'">otra directiva</div>
+<!-- <div [appClass]="'Red'">otra directiva</div>
+ -->
+
+<ul *appTimes="5">
+  <li>hi there</li>
+</ul>
